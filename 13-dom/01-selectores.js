@@ -6,7 +6,7 @@ let elementosred = document.getElementsByClassName('red');
 
 
 //nodeList 
-let elementosChanchito = document.getElementsName('chanchito');
+let elementosChanchito = document.getElementsByName('chanchito');
 
 //HTMLCollection
 let parrafos = document.getElementsByTagName('p');
