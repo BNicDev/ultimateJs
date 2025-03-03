@@ -1,3 +1,11 @@
+let validar = data => {
+    let errors = {};
+    if (!data.nombre || !data.apellido){
+        alert('es un campo requerido')
+        console.log(errors);
+    }
+}
+
 let render = () =>{
     return `
         <form>
@@ -23,3 +31,18 @@ let render = () =>{
 let form = document.createElement('form');
 form.innerHTML = render();
 document.body.append(form);
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    let datos = Array.from(e.target.elements).reduce((acc,el)=>{
+        if(!el.name) return acc; //si no se valida el primer elemento devolveme el arr vacio
+        acc[el.name] = el.value;
+        return acc;
+    },{})
+    if(!datos.nombre || !datos.apellido || !datos.telefono){
+        validar(datos);
+    }else{
+        console.log(datos);
+    }
+   
+})
